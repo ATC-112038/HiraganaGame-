@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://btw1763nwutrs"]
+
+[ext_resource type="Script" uid="uid://cy2cum7xqcimw" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="FontFile" uid="uid://bre7mw7el18jd" path="res://fonts/NotoSansJP-Regular.ttf" id="3_sugp2"]
+[ext_resource type="AudioStream" uid="uid://bs1e6b8f01qfs" path="res://sounds/ElevenLabs_Sharp_ding_signaling_completion_of_a_download.mp3" id="3_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://cx8s5ntj7mmno" path="res://sounds/ElevenLabs_Low-frequency_warning_tone_for_invalid_input_alert.mp3" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://ddso85bkyuxgn" path="res://scripts/points.gd" id="5_tbgi4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_0wfyh"]
+script/source = "extends TextEdit
+
+func _process(delta: float) -> void:
+	$\".\".text = str(int($\"../Timer\".time_left))
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+bg_color = Color(0.21176471, 0.27058825, 0.30980393, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D" unique_id=1305270896]
+script = ExtResource("1_o5qli")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1922803384]
+
+[node name="Timer" type="Timer" parent="." unique_id=765519862]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="Pronunciation" type="TextEdit" parent="." unique_id=672661866]
+offset_left = -56.0
+offset_top = 150.0
+offset_right = 374.0
+offset_bottom = 398.0
+theme_override_colors/search_result_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_colors/search_result_border_color = Color(0.3, 0.3, 0.3, 0.4)
+theme_override_colors/caret_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/caret_background_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 0.5019608)
+theme_override_colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/background_color = Color(0.05882353, 0.09803922, 0.13725491, 1)
+theme_override_colors/current_line_color = Color(0.25, 0.25, 0.26, 0.8)
+theme_override_colors/word_highlighted_color = Color(0.5, 0.5, 0.5, 0.25)
+theme_override_font_sizes/font_size = 200
+theme_override_styles/read_only = SubResource("StyleBoxFlat_jyhfs")
+text = "test
+"
+editable = false
+
+[node name="TimerText" type="TextEdit" parent="." unique_id=1465898654]
+offset_left = -36.0
+offset_top = -4.0
+offset_right = 62.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 80
+text = "4
+"
+script = SubResource("GDScript_0wfyh")
+
+[node name="TextEdit" type="Button" parent="." unique_id=1353720991]
+offset_left = -470.0
+offset_top = -218.0
+offset_right = -297.0
+offset_bottom = -37.0
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 67
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
+
+[node name="TextEdit2" type="Button" parent="." unique_id=2101980886]
+offset_left = -106.0
+offset_top = -223.0
+offset_right = 67.0
+offset_bottom = -42.0
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 67
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
+
+[node name="TextEdit3" type="Button" parent="." unique_id=1581790661]
+offset_left = 261.0
+offset_top = -224.0
+offset_right = 434.0
+offset_bottom = -43.0
+theme_override_fonts/font = ExtResource("3_sugp2")
+theme_override_font_sizes/font_size = 67
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=269954141]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 136.802
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1207456650]
+z_index = -1
+offset_left = -1115.6196
+offset_top = -599.4795
+offset_right = 1137.3804
+offset_bottom = 684.5205
+color = Color(0.05882353, 0.09803922, 0.13725491, 1)
+
+[node name="correct" type="AudioStreamPlayer2D" parent="." unique_id=376639699]
+stream = ExtResource("3_tbgi4")
+volume_db = 1.0
+
+[node name="incorrect" type="AudioStreamPlayer2D" parent="." unique_id=355820991]
+stream = ExtResource("4_tefeu")
+
+[node name="Points" type="TextEdit" parent="." unique_id=1542530732]
+offset_left = -508.0
+offset_top = 146.0
+offset_right = -157.0
+offset_bottom = 230.0
+theme_override_colors/font_readonly_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/read_only = SubResource("StyleBoxFlat_tefeu")
+text = "Points = 0"
+editable = false
+script = ExtResource("5_tbgi4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_up" from="TextEdit" to="." method="_on_text_edit_button_up"]
+[connection signal="button_up" from="TextEdit2" to="." method="_on_text_edit_2_button_up"]
+[connection signal="button_up" from="TextEdit3" to="." method="_on_text_edit_3_button_up"]
