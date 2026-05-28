@@ -64,6 +64,7 @@ offset_bottom = 117.0
 theme_override_font_sizes/font_size = 80
 text = "4
 "
+editable = false
 script = SubResource("GDScript_0wfyh")
 
 [node name="TextEdit" type="Button" parent="." unique_id=1353720991]

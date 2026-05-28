@@ -2,6 +2,7 @@ HiraganaGame++
 
 Original concept by @iammister1
 
-- Added all hiraganas, slightly modified UI colours and theme.
-
-More things to come.
+- Added Katakana
+- Added Both Modes (Mix katakana and hiragana)
+- Added reset points button.
+Slightly updated ui elements.
